@@ -2,6 +2,7 @@ import './components css/Profile.css';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import Button from './Button';
+import PostForm from './PostForm';
 
 const Profile = ({firstName, lastName, username}) => {
   return (
@@ -13,6 +14,7 @@ const Profile = ({firstName, lastName, username}) => {
       </Link>
       <Button className="post-btn" text={'Create a post'} onClick={undefined}></Button>
       <Button className="logout-btn" text={'Log out'} onClick={undefined}></Button>
+      <PostForm></PostForm>
     </div>
     </div>
   )

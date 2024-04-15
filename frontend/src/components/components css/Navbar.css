@@ -14,3 +14,7 @@
 .navbar > h1 {
   font-size: small;
 }
+
+.navbar > img {
+  height: 40px;
+}
