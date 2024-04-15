@@ -1,0 +1,22 @@
+.profile {
+  margin: 30px;
+}
+.profile > button {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.home-btn {
+  color: #000058;
+  background-color: #F2EFFF;
+}
+
+.post-btn {
+  color: #F2EFFF;
+  background-color: #000058;
+}
+
+.logout-btn {
+  color: #F2EFFF;
+  background-color: black;
+}
