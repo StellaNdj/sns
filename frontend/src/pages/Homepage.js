@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Post from '../components/Post';
 import Profile from '../components/Profile';
 import './pages css/Homepage.css';
+import { usePostContext } from '../hooks/usePostContext';
 
 const Homepage = () => {
-  const [posts, setPosts] = useState(null);
+  const { posts, dispatch } = usePostContext();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -12,11 +13,11 @@ const Homepage = () => {
       const json = await response.json();
 
       if(response.ok) {
-        setPosts(json);
+        dispatch({type: 'SET_POSTS', payload: json})
       }
     }
     fetchPosts();
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="homepage">

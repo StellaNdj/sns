@@ -12,6 +12,9 @@ const PostForm = () => {
 
     const response = await fetch('/api/posts', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(post)
     })
 
@@ -28,8 +31,6 @@ const PostForm = () => {
       setContent('');
       setError(null);
     }
-
-
   };
 
   return(
