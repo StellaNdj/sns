@@ -10,6 +10,10 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+app.use((req, res, next) => {
+  next();
+})
+
 // Routes
 app.use('/api/posts', postsRoutes);
 app.use('/api/user', usersRoutes);

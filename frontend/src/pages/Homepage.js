@@ -3,14 +3,22 @@ import Post from '../components/Post';
 import Profile from '../components/Profile';
 import './pages css/Homepage.css';
 import { usePostContext } from '../hooks/usePostContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Homepage = () => {
   const { posts, dispatch } = usePostContext();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch('/api/posts');
+      const response = await fetch('/api/posts', {
+        headers: {
+          'Authorization': `Bearer ${user?.token}`
+        }
+      });
       const json = await response.json();
+
+      console.log(json);
 
       if(response.ok) {
         dispatch({type: 'SET_POSTS', payload: json})
