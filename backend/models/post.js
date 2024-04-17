@@ -14,6 +14,10 @@ const postSchema = new Schema({
   dislikes: {
     type: Number,
     default: 0,
+  },
+  user: {
+    type: Object,
+    required: true,
   }
 }, {timestamps: true});
 

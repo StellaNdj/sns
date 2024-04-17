@@ -28,7 +28,7 @@ const PostForm = () => {
       body: JSON.stringify(post)
     })
 
-    const json = response.json();
+    const json = await response.json();
 
     if(!response.ok) {
       setError(json.error);

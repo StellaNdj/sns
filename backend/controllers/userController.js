@@ -37,7 +37,20 @@ const loginUser = async (req, res) => {
   }
 }
 
+// User info for profile
+const userInfos = async (req, res) => {
+  const { email } = req.params;
+
+  try {
+    const user = await User.findOne({email}).select('firstName lastName username');
+    res.status(200).json({user});
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+};
+
 module.exports = {
   loginUser,
-  signupUser
+  signupUser,
+  userInfos
 }

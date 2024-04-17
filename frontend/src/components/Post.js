@@ -1,8 +1,18 @@
 import './components css/Post.css';
+import Avatar from './Avatar';
 
 const Post = ({post}) => {
   return (
     <div className="post-card">
+      {post.user && (
+        <div className="user-info">
+          <Avatar
+            firstName={post.user.firstName}
+            lastName={post.user.lastName}
+            username={post.user.username}
+            />
+        </div>
+      )}
       <p className="post-date">{post.createdAt}</p>
       <p>{post.content}</p>
       <div className="post-counters">
