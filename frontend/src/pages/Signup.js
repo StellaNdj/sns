@@ -21,7 +21,7 @@ const Signup = () => {
     <div className="form-container">
       <div className="form-left-side"></div>
       <div className="form-right-side">
-        <div>
+        <div className="form">
           <h2>Sign up</h2>
           <form onSubmit={handleSubmit}>
             <label>First name</label>
@@ -44,7 +44,7 @@ const Signup = () => {
                 />
             <label>Password</label>
             <input
-              type='text'
+              type='password'
               onChange={(e) => setPassword(e.target.value)}
               value={password}
                 />

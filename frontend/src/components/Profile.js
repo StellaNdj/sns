@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import Button from './Button';
 import PostForm from './PostForm';
+import { useLogout} from '../hooks/useLogoutContext';
 
 const Profile = ({firstName, lastName, username}) => {
+  const { logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div>
       <div className="profile">
@@ -13,7 +20,7 @@ const Profile = ({firstName, lastName, username}) => {
         <Button className="home-btn" text={'Home'} onClick={undefined}></Button>
       </Link>
       <Button className="post-btn" text={'Create a post'} onClick={undefined}></Button>
-      <Button className="logout-btn" text={'Log out'} onClick={undefined}></Button>
+      <Button className="logout-btn" text={'Log out'} onClick={handleLogout}></Button>
       <PostForm></PostForm>
     </div>
     </div>

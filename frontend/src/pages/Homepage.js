@@ -12,20 +12,20 @@ const Homepage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch('/api/posts', {
+        method: 'GET',
         headers: {
           'Authorization': `Bearer ${user?.token}`
         }
       });
+
       const json = await response.json();
-
-      console.log(json);
-
+      
       if(response.ok) {
         dispatch({type: 'SET_POSTS', payload: json})
       }
     }
     fetchPosts();
-  }, [dispatch])
+  }, [dispatch, user?.token])
 
   return (
     <div className="homepage">

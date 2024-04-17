@@ -18,7 +18,7 @@ const Login = () => {
     <div className="form-container">
       <div className="form-left-side"></div>
       <div className="form-right-side">
-        <div>
+        <div className="form">
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <label>Email</label>
@@ -31,7 +31,7 @@ const Login = () => {
               type='password'
               onChange={(e) => setPassword(e.target.value)}
               value={password}/>
-            <button disabled={loading}></button>
+            <button disabled={loading}>Log in</button>
           </form>
           <p className="form-redirect">You don't have an account ? <Link to='/signup'>Sign up</Link></p>
           {error && <div className="notice">{error}</div>}

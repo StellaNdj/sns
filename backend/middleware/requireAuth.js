@@ -19,6 +19,7 @@ const requireAuth = async (req, res, next) => {
 
     next()
   } catch (error) {
+    console.error('JWT Verification Error:', error.message);
     res.status(401).json({error: 'Request not authorized'});
   }
 }
