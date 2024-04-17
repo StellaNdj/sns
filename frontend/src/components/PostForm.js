@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { usePostContext } from "../hooks/usePostContext";
+import './components css/PostForm.css';
+import Button from "./Button";
 
 const PostForm = () => {
   const { dispatch } = usePostContext();
@@ -43,11 +45,11 @@ const PostForm = () => {
   };
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form className="post-form" onSubmit={handleSubmit}>
       <textarea
         onChange={(e) => setContent(e.target.value)}
         value={content}></textarea>
-      <button>Post</button>
+      <Button text={'Post'} onClick={undefined}></Button>
     </form>
   )
 };

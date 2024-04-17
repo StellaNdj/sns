@@ -1,6 +1,7 @@
 .homepage {
   display: flex;
   justify-content: space-evenly;
+  margin-left: 45vh;
   margin-top: 30px;
 }
 
