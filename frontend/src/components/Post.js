@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
+import CommentForm from './CommentForm';
+
 
 const Post = ({post}) => {
   const { user } = useAuthContext();
@@ -30,6 +32,10 @@ const Post = ({post}) => {
     }
   }
 
+  const handleNewComment = (newComment) => {
+    setPostComments([...postComments, newComment]);
+  }
+
   return (
     <div className="post-card">
       <div className='avatar-date'>
@@ -51,8 +57,9 @@ const Post = ({post}) => {
         <p><FontAwesomeIcon icon={faComment} onClick={handleComments}></FontAwesomeIcon><span>{post.comments ? post.comments.length : 0}</span></p>
       </div>
       { displayComments && (<div>
+          <CommentForm postId={post._id} onNewComment={handleNewComment}></CommentForm>
           { postComments.length > 0 && postComments.map((postComment) => {
-            return <Post key={postComment.id} post={postComment}></Post>
+            return <Post key={postComment._id} post={postComment}></Post>
           }) }
         </div>)
       }
