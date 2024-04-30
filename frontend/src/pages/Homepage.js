@@ -3,6 +3,7 @@ import Post from '../components/Post';
 import './pages css/Homepage.css';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
+import PostForm from '../components/PostForm';
 
 const Homepage = () => {
   const { posts, dispatch } = usePostContext();
@@ -18,6 +19,7 @@ const Homepage = () => {
       });
 
       const json = await response.json();
+      console.log(json);
 
       if(response.ok) {
         dispatch({type: 'SET_POSTS', payload: json})
@@ -29,6 +31,9 @@ const Homepage = () => {
   return (
     <div className="homepage">
       <div className="homepage-posts">
+        <div className="homepage-post-form">
+          <PostForm></PostForm>
+        </div>
         {posts && posts.map((post) => {
           return <Post key={post._id} post={post}></Post>
         })}

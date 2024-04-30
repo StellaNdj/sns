@@ -1,7 +1,7 @@
 .homepage {
   display: flex;
   justify-content: space-evenly;
-  margin-left: 45vh;
+  margin-left: 40vh;
   margin-top: 30px;
 }
 
@@ -12,4 +12,8 @@
 .homepage-posts {
   flex: 3;
   margin-left: 50px;
+}
+
+.homepage-post-form {
+  max-width: 650px;
 }

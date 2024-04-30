@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 
 // GET all post
 const getPosts = async (req, res) => {
-  const posts = await Post.find({}).sort({createdAt: -1});
-
+  const posts = await Post.find({})
+    .sort({createdAt: -1})
+    .populate('user')
+    .populate('comments');
   res.status(200).json(posts)
 }
 
@@ -16,7 +18,8 @@ const getPost = async (req, res) => {
     return res.status(404).json({error: 'No such post'});
   }
 
-  const post = await Post.findById(id);
+  const post = await Post.findById(id)
+    .populate(['user','comment']);
 
   if(!post) {
     return res.status(400).json({error: 'No such post found'});
@@ -30,9 +33,10 @@ const getPost = async (req, res) => {
 const createPost = async (req, res) => {
   const { content } = req.body;
   try {
-    const user = req.user;
+    const user = req.user.id;
     const post = await Post.create({content, user});
-    res.status(200).json(post)
+
+    res.status(200).json(post);
 
   } catch (error) {
     res.status(400).json({error: error.message});
