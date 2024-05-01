@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import Avatar from './Avatar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -47,6 +49,7 @@ const Navbar = () => {
       <Button text={"Log out"} onClick={handleLogout}></Button>
       <PostForm></PostForm>
       {userInfo && (<Avatar firstName={userInfo.firstName} lastName={userInfo.lastName} username={userInfo.username}></Avatar>)}
+      <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
     </div>
   )
 }

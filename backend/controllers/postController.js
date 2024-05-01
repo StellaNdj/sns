@@ -46,17 +46,23 @@ const createPost = async (req, res) => {
 // DELETE post
 const deletePost = async (req, res) => {
   const { id } = req.params;
+  const userId = req.user.id;
 
   if(!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'Id invalid, no such post'});
   };
 
-  const post = await Post.findOneAndDelete({_id: id});
+  const post = await Post.findOne({_id: id});
 
   if(!post) {
-    res.status(400).json({error: 'No such post found'});
+    return res.status(404).json({error: 'No such post found'});
   };
 
+  if(post.user.toString() !== userId) {
+    return res.status(403).json({error: 'Unauthorized deletion. It must be your post'});
+  }
+
+  await post.deleteOne({ _id: id });
   res.status(200).json(post);
 }
 
