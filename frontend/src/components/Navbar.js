@@ -9,7 +9,8 @@ import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import Avatar from './Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { useThemeContext } from '../hooks/useThemeContext';
 
 
 const Navbar = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
   const { dispatch } = usePostContext();
   const { user } = useAuthContext();
   const [userInfo, setUserInfo] = useState();
+  const { darkTheme, setDarkTheme } = useThemeContext(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -39,6 +41,11 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
   };
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme)
+  }
+
   return (
     <div className="navbar">
       <img src="SocNetLogo.png" alt="Logo"></img>
@@ -49,7 +56,7 @@ const Navbar = () => {
       <Button text={"Log out"} onClick={handleLogout}></Button>
       <PostForm></PostForm>
       {userInfo && (<Avatar firstName={userInfo.firstName} lastName={userInfo.lastName} username={userInfo.username}></Avatar>)}
-      <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
+      <FontAwesomeIcon icon={darkTheme ? faMoon : faSun} onClick={toggleTheme}></FontAwesomeIcon>
     </div>
   )
 }

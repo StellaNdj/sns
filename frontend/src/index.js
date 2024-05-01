@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import { PostContextProvider } from './contexts/postContext';
 import { AuthContextProvider } from './contexts/authContext';
+import { ThemeContextProvider } from './contexts/themeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <PostContextProvider>
-        <App />
-      </PostContextProvider>
+      <ThemeContextProvider>
+        <PostContextProvider>
+          <App />
+        </PostContextProvider>
+      </ThemeContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

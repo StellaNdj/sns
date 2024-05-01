@@ -5,12 +5,16 @@ import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { useAuthContext } from './hooks/useAuthContext';
+import './DarkMode.css';
+import { useThemeContext } from './hooks/useThemeContext';
+
 
 function App() {
   const { user } = useAuthContext();
+  const { darkTheme } = useThemeContext();
 
   return (
-    <div className="App">
+    <div className={darkTheme ? 'App darkMode' : 'App'}>
       <BrowserRouter>
         <Routes>
           <Route
