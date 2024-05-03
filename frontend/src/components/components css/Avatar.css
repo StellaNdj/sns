@@ -6,12 +6,12 @@
 .avatar-logo {
   width: 50px;
   height: 50px;
-  background-color: #F2EFFF;
+  background-color: #c2d9f3;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   color: #000058;
   font-weight: bold;
 }
@@ -31,4 +31,37 @@
   color:#000058;
   font-weight: bold;
   font-size: smaller;
+}
+
+/* Avatar navbar */
+
+.avatarNav {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.avatarNav-logo {
+  width: 50px;
+  height: 50px;
+  background-color: #c2d9f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #000058;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.avatarNav-infos {
+  text-align: left;
+}
+.avatarNav-infos > h3 {
+  margin: 0;
+}
+.avatarNav-infos > p {
+  margin: 0;
+  color: #55585b;
 }

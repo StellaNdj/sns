@@ -7,10 +7,11 @@ import PostForm from './PostForm';
 import { useEffect, useState } from 'react';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
-import Avatar from './Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faHouse, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { useThemeContext } from '../hooks/useThemeContext';
+import AvatarNavbar from './AvatarNavbar';
+
 
 
 const Navbar = () => {
@@ -49,14 +50,16 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <img src="SocNetLogo.png" alt="Logo"></img>
-      <Link to="/">
-        <Button text={"Home"}></Button>
-      </Link>
-      <Button className="post-btn" text={'Post'}></Button>
-      <Button text={"Log out"} onClick={handleLogout}></Button>
-      <PostForm></PostForm>
-      {userInfo && (<Avatar firstName={userInfo.firstName} lastName={userInfo.lastName} username={userInfo.username}></Avatar>)}
-      <FontAwesomeIcon icon={darkTheme ? faMoon : faSun} onClick={toggleTheme}></FontAwesomeIcon>
+      <div>
+        <Link to="/">
+          <Button className="home-btn" text={"Home"} icon={faHouse}></Button>
+        </Link>
+        <Button className="logout-btn" text={"Log out"} onClick={handleLogout} icon={faDoorOpen}></Button>
+        <Button className="theme-btn" text={'Theme'} onClick={toggleTheme} icon={darkTheme ? faMoon : faSun}></Button>
+        <Button className="post-btn" text={'Post'}></Button>
+      </div>
+
+      {userInfo && (<AvatarNavbar firstName={userInfo.firstName} lastName={userInfo.lastName} username={userInfo.username}></AvatarNavbar>)}
     </div>
   )
 }

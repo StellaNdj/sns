@@ -7,6 +7,8 @@
   overflow-y: auto;
   z-index: 1;
   padding: 20px;
+  border-right: 1px solid #ece9e9;
+  text-align: left;
 }
 
 .navbar > a  {
@@ -21,4 +23,6 @@
 
 .navbar > img {
   height: 40px;
+  margin-left: 15px;
 }
+

@@ -1,8 +1,33 @@
 .button {
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 10px 20px;
-  width: 100%;
-  font-weight: bold;
   border: none;
   margin: 5px 0;
+  font-size: 18px;
+}
+
+.button > svg {
+  margin-right: 10px;
+}
+
+.home-btn,
+.logout-btn,
+.theme-btn {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.home-btn:hover,
+.logout-btn:hover,
+.theme-btn:hover {
+  background-color: #dfe4e8 ;
+  cursor: pointer;
+}
+
+
+.post-btn {
+  color: #F2EFFF;
+  width: 100%;
+  background-color: #000058;
+  cursor: pointer;
 }
