@@ -38,6 +38,16 @@ const Homepage = () => {
           return <Post key={post._id} post={post}></Post>
         })}
       </div>
+      <div className="homepage-rightside">
+        <div className="homepage-quote">
+          <h3>Quote of the day</h3>
+          <p>“Does losing prove that you are weak? Isn't losing difficult for all of you? A challenge where, after ending up on your hands and knees, you must see if you can stand up again? If you stay on your hands and knees, that proves that you are weak.” - Haikyuu</p>
+        </div>
+        <div className="homepage-highlight">
+          <h3>Highlights</h3>
+          <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/07/Haikyuu-Season-4.jpeg" alt="Haikyuu pic" width={400}></img>
+        </div>
+      </div>
     </div>
   )
 }

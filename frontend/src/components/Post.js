@@ -6,6 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
 import CommentForm from './CommentForm';
 import { usePostContext } from '../hooks/usePostContext';
+import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
 
 const Post = ({post}) => {
@@ -85,9 +86,9 @@ const Post = ({post}) => {
               />
           </div>
         )}
-        <p className="post-date">{post.createdAt}</p>
+        <p className="post-date">·{formatDistanceToNow(new Date(post.createdAt), {addSuffix: true})}</p>
       </div>
-      <p>{post.content}</p>
+      <p className="post-content">{post.content}</p>
       <div className="post-counters">
         <p><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon><span>{post.likes}</span>
         </p>
