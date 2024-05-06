@@ -54,6 +54,10 @@
   cursor: pointer;
 }
 
+.liked {
+  color:red;
+}
+
 .post-comments:hover {
   color: rgb(83, 150, 249);
   cursor: pointer;

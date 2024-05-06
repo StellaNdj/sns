@@ -32,6 +32,10 @@ const Homepage = () => {
   const handlePostDelete = (postId) => {
     dispatch({type: 'DELETE_POST', payload: postId});
   }
+
+  const handlePostLikes = (postId) => {
+    dispatch({type: 'UPDATE_LIKES_POST', payload: postId})
+  }
   return (
     <div className="homepage">
       <div className="homepage-posts">
@@ -41,7 +45,7 @@ const Homepage = () => {
           </PostHomepage>
         </div>
         {posts && posts.map((post) => {
-          return <Post key={post._id} post={post} onDelete={handlePostDelete}></Post>
+          return <Post key={post._id} post={post} onDelete={handlePostDelete} onLike={handlePostLikes}></Post>
         })}
       </div>
       <div className="homepage-rightside">

@@ -19,7 +19,8 @@ const getPost = async (req, res) => {
   }
 
   const post = await Post.findById(id)
-    .populate(['user','comment']);
+    .populate('user')
+    .populate('comments')
 
   if(!post) {
     return res.status(400).json({error: 'No such post found'});
@@ -90,10 +91,38 @@ const updatePostContent = async (req, res) => {
   res.status(200).json(post);
 }
 
+// Update post likes
+const updatePostLikes = async (req, res) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  if(!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: 'Id invalid for mongo'});
+  };
+
+  let post = await Post.findOne({_id: id});
+
+  if(!post) {
+    res.status(400).json({error: 'No such post found'});
+  };
+  const indexPost = post.likes.indexOf(userId);
+
+  if (indexPost !== -1) {
+    post.likes.splice(indexPost, 1);
+  } else {
+    post.likes.push(userId);
+  }
+
+  post = await post.save();
+
+  res.status(200).json(post);
+}
+
 module.exports = {
   getPosts,
   createPost,
   getPost,
   deletePost,
   updatePostContent,
+  updatePostLikes,
 }

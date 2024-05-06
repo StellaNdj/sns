@@ -9,7 +9,7 @@ import CommentForm from './CommentForm';
 import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
 
-const Post = ({post, onDelete}) => {
+const Post = ({post, onDelete, onLike}) => {
   const { user } = useAuthContext();
   const [postComments, setPostComments] = useState([]);
   const [displayComments, setDisplayComments] = useState(false);
@@ -73,6 +73,26 @@ const Post = ({post, onDelete}) => {
     }
   }
 
+  // Like a post
+  const handleLike = () => {
+    const likePost = async () => {
+      const response = await fetch(`/api/posts/likes/${post._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${user?.token}`
+        }
+      })
+
+      const json = await response.json();
+
+      if(response.ok) {
+        console.log(json);
+        onLike(json._id);
+      }
+    }
+    likePost();
+  }
+
   return (
     <div className="post-card">
       <div className='avatar-date'>
@@ -90,7 +110,8 @@ const Post = ({post, onDelete}) => {
       </div>
       <p className="post-content">{post.content}</p>
       <div className="post-counters">
-        <p className="post-likes"><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon><span>{post.likes}</span>
+        <p className={`post-likes ${post.likes.includes(user.userId) ? 'liked' : ''}`}><FontAwesomeIcon icon={faHeart} onClick={handleLike}></FontAwesomeIcon><span>{post.likes.length}</span>
+        {console.log(post.likes.includes(user.userId))}
         </p>
         <p className="post-comments"><FontAwesomeIcon icon={faComment} onClick={handleComments}></FontAwesomeIcon><span>{post.comments ? post.comments.length : 0}</span></p>
       </div>
