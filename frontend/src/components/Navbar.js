@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './components css/Navbar.css';
 import Button from './Button';
 import { useLogout} from '../hooks/useLogoutContext';
-import PostForm from './PostForm';
 import { useEffect, useState } from 'react';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';

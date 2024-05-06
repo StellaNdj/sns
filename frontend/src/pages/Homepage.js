@@ -4,6 +4,7 @@ import './pages css/Homepage.css';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import PostForm from '../components/PostForm';
+import PostHomepage from '../components/PostHomepage';
 
 const Homepage = () => {
   const { posts, dispatch } = usePostContext();
@@ -28,14 +29,19 @@ const Homepage = () => {
     fetchPosts();
   }, [dispatch, user?.token])
 
+  const handlePostDelete = (postId) => {
+    dispatch({type: 'DELETE_POST', payload: postId});
+  }
   return (
     <div className="homepage">
       <div className="homepage-posts">
         <div className="homepage-post-form">
-          <PostForm></PostForm>
+          <PostHomepage>
+            <PostForm></PostForm>
+          </PostHomepage>
         </div>
         {posts && posts.map((post) => {
-          return <Post key={post._id} post={post}></Post>
+          return <Post key={post._id} post={post} onDelete={handlePostDelete}></Post>
         })}
       </div>
       <div className="homepage-rightside">

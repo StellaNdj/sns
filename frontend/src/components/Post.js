@@ -5,13 +5,12 @@ import { faHeart, faComment, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
 import CommentForm from './CommentForm';
-import { usePostContext } from '../hooks/usePostContext';
+
 import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
 
-const Post = ({post}) => {
+const Post = ({post, onDelete}) => {
   const { user } = useAuthContext();
-  const { dispatch } = usePostContext();
   const [postComments, setPostComments] = useState([]);
   const [displayComments, setDisplayComments] = useState(false);
 
@@ -67,7 +66,7 @@ const Post = ({post}) => {
 
         if(response.ok) {
           console.log(json);
-          dispatch({type: 'DELETE_POST', payload: json})
+          onDelete(json._id);
         }
       }
       deletePost();
@@ -87,13 +86,13 @@ const Post = ({post}) => {
           </div>
         )}
         <p className="post-date">·{formatDistanceToNow(new Date(post.createdAt), {addSuffix: true})}</p>
+        {deletePossible()}
       </div>
       <p className="post-content">{post.content}</p>
       <div className="post-counters">
-        <p><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon><span>{post.likes}</span>
+        <p className="post-likes"><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon><span>{post.likes}</span>
         </p>
-        <p><FontAwesomeIcon icon={faComment} onClick={handleComments}></FontAwesomeIcon><span>{post.comments ? post.comments.length : 0}</span></p>
-        {deletePossible()}
+        <p className="post-comments"><FontAwesomeIcon icon={faComment} onClick={handleComments}></FontAwesomeIcon><span>{post.comments ? post.comments.length : 0}</span></p>
       </div>
       { displayComments && (<div>
           <CommentForm postId={post._id} onNewComment={handleNewComment}></CommentForm>

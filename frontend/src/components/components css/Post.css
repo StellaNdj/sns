@@ -45,4 +45,16 @@
 
 .post-content {
   text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.post-likes:hover {
+  color: rgb(236, 106, 164);
+  cursor: pointer;
+}
+
+.post-comments:hover {
+  color: rgb(83, 150, 249);
+  cursor: pointer;
 }

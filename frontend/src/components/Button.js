@@ -5,8 +5,8 @@ import { faHouse, faDoorOpen, faMoon, faSun } from '@fortawesome/free-solid-svg-
 const Button = ({text, className, onClick, icon}) => {
   return (
     <button className={`button ${className}`} onClick={onClick}>
-      <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
-      {text}
+      {icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}
+      <span className="button-text"> {text}</span>
     </button>
   )
 };

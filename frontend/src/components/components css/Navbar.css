@@ -26,3 +26,8 @@
   margin-left: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .navbar > button > span > .button-text {
+    display: none;
+  }
+}

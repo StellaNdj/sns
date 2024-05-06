@@ -36,7 +36,9 @@ const createPost = async (req, res) => {
     const user = req.user.id;
     const post = await Post.create({content, user});
 
-    res.status(200).json(post);
+    const populatedPost = await Post.findById(post._id).populate('user');
+
+    res.status(200).json(populatedPost);
 
   } catch (error) {
     res.status(400).json({error: error.message});
