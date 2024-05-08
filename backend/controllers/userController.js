@@ -50,8 +50,26 @@ const userInfos = async (req, res) => {
   }
 };
 
+// User info from username
+const usernameInfos = async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const user = await User.findOne({username}).select('firstName lastName username');
+
+    if(!user) {
+      return res.status(404).json({error: 'User not found'});
+    }
+    res.status(200).json({user});
+  } catch (error) {
+    res.status(400).json({error: error.message});
+  }
+}
+
+
 module.exports = {
   loginUser,
   signupUser,
-  userInfos
+  userInfos,
+  usernameInfos,
 }

@@ -33,8 +33,8 @@ const Homepage = () => {
     dispatch({type: 'DELETE_POST', payload: postId});
   }
 
-  const handlePostLikes = (postId) => {
-    dispatch({type: 'UPDATE_LIKES_POST', payload: postId})
+  const handlePostLikes = (post) => {
+    dispatch({type: 'UPDATE_LIKES_POST', payload: post})
   }
   return (
     <div className="homepage">

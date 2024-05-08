@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './components css/Avatar.css';
 
 const Avatar = ({firstName, lastName, username}) => {
@@ -7,7 +8,9 @@ const Avatar = ({firstName, lastName, username}) => {
         {firstName.charAt(0)} {lastName.charAt(0)}
       </div>
       <div className="avatar-infos">
-        <h3>{firstName} {lastName}</h3>
+        <Link to={`/${username}`}>
+          <h3>{firstName} {lastName}</h3>
+        </Link>
         <p>@{username}</p>
       </div>
     </div>

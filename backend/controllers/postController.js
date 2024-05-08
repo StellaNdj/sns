@@ -10,6 +10,21 @@ const getPosts = async (req, res) => {
   res.status(200).json(posts)
 }
 
+// Get all post for a specific user
+const getUserPosts = async (req, res) => {
+  const { userId } = req.params;
+
+  const posts = await Post.find({user: userId})
+    .sort({createdAt: -1})
+    .populate('user')
+    .populate('comments');
+
+  if(!posts) {
+    return res.status(400).json({error: 'No posts found'})
+  }
+  res.status(200).json(posts);
+}
+
 // GET a post
 const getPost = async (req, res) => {
   const { id } = req.params;
@@ -100,7 +115,7 @@ const updatePostLikes = async (req, res) => {
     return res.status(404).json({error: 'Id invalid for mongo'});
   };
 
-  let post = await Post.findOne({_id: id});
+  let post = await Post.findOne({_id: id}).populate('user');
 
   if(!post) {
     res.status(400).json({error: 'No such post found'});
@@ -120,6 +135,7 @@ const updatePostLikes = async (req, res) => {
 
 module.exports = {
   getPosts,
+  getUserPosts,
   createPost,
   getPost,
   deletePost,

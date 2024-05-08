@@ -5,7 +5,6 @@ import { faHeart, faComment, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
 import CommentForm from './CommentForm';
-
 import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
 
@@ -87,7 +86,7 @@ const Post = ({post, onDelete, onLike}) => {
 
       if(response.ok) {
         console.log(json);
-        onLike(json._id);
+        onLike(json);
       }
     }
     likePost();
@@ -110,8 +109,7 @@ const Post = ({post, onDelete, onLike}) => {
       </div>
       <p className="post-content">{post.content}</p>
       <div className="post-counters">
-        <p className={`post-likes ${post.likes.includes(user.userId) ? 'liked' : ''}`}><FontAwesomeIcon icon={faHeart} onClick={handleLike}></FontAwesomeIcon><span>{post.likes.length}</span>
-        {console.log(post.likes.includes(user.userId))}
+        <p className={`post-likes${post.likes.includes(user.userId) ? '-liked' : ''}`}><FontAwesomeIcon icon={faHeart} onClick={handleLike}></FontAwesomeIcon><span>{post.likes.length}</span>
         </p>
         <p className="post-comments"><FontAwesomeIcon icon={faComment} onClick={handleComments}></FontAwesomeIcon><span>{post.comments ? post.comments.length : 0}</span></p>
       </div>

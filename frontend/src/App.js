@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import { useAuthContext } from './hooks/useAuthContext';
 import './DarkMode.css';
 import { useThemeContext } from './hooks/useThemeContext';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -27,6 +28,17 @@ function App() {
               </>
               ) : (<Navigate to="/login"/>)
             } />
+          <Route
+            path='/:username'
+            element={
+              user ? (
+                <>
+                  <Navbar/>
+                  <Profile/>
+                </>
+              ) : (<Navigate to="/login"/>)
+            }
+          />
           <Route
             path='/signup'
             element={!user ? <Signup/> : <Navigate to="/"/> }/>

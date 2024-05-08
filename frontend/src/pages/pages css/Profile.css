@@ -1,0 +1,81 @@
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 40vh;
+  margin-top: 30px;
+}
+
+.profile-profile {
+  flex: 1;
+}
+
+.profile-posts {
+  flex: 3;
+  margin-left: 50px;
+}
+
+.profile-bar {
+  border-bottom: 1px solid #ece9e9;
+  font-weight: bold;
+  text-align: left;
+}
+
+.profile-card {
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/868/643/658/anime-sky-anime-landscape-clouds-anime-wallpaper-thumb.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 30vh;
+  width: 100%;
+}
+
+.profile-logo {
+  width: 100px;
+  height: 100px;
+  background-color: #c2d9f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #000058;
+  font-weight: bold;
+  position: absolute;
+  bottom: -50px;
+  left: 15%;
+  transform: translateX(-50%);
+  border: 3px solid white;
+}
+
+.profile-names {
+  font-weight: bold;
+  text-align: left;
+  margin-top: 50px;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.profile-username {
+  text-align: left;
+  color: #55585b;
+  margin-top: 0;
+}
+
+.profile-rightside {
+  flex: 2;
+  margin-left: 35px;
+  margin-right: 20px;
+}
+
+.profile-quote {
+  border: 1px solid #ece9e9;
+  border-radius: 25px;
+  padding: 10px;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-rightside {
+    display: none;
+  }
+}
