@@ -12,14 +12,16 @@
 
 .home-btn,
 .logout-btn,
-.theme-btn {
+.theme-btn,
+.profile-btn {
   background-color: #ffffff;
   cursor: pointer;
 }
 
 .home-btn:hover,
 .logout-btn:hover,
-.theme-btn:hover {
+.theme-btn:hover,
+.profile-btn:hover {
   background-color: #dfe4e8 ;
   cursor: pointer;
 }

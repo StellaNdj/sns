@@ -20,7 +20,6 @@ const Homepage = () => {
       });
 
       const json = await response.json();
-      console.log(json);
 
       if(response.ok) {
         dispatch({type: 'SET_POSTS', payload: json})

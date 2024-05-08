@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon, faHouse, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faHouse, faDoorOpen, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useThemeContext } from '../hooks/useThemeContext';
 import AvatarNavbar from './AvatarNavbar';
 
@@ -55,6 +55,9 @@ const Navbar = () => {
         </Link>
         <Button className="logout-btn" text={"Log out"} onClick={handleLogout} icon={faDoorOpen}></Button>
         <Button className="theme-btn" text={'Theme'} onClick={toggleTheme} icon={darkTheme ? faMoon : faSun}></Button>
+        <Link to={`/${user?.username}`}>
+          <Button className="profile-btn" text={'Profile'} icon={faUser}></Button>
+        </Link>
         <Button className="post-btn" text={'Post'}></Button>
       </div>
 
