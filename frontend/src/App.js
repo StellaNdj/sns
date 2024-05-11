@@ -8,6 +8,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 import './DarkMode.css';
 import { useThemeContext } from './hooks/useThemeContext';
 import Profile from './pages/Profile';
+import PostView from './pages/PostView';
 
 
 function App() {
@@ -35,6 +36,17 @@ function App() {
                 <>
                   <Navbar/>
                   <Profile/>
+                </>
+              ) : (<Navigate to="/login"/>)
+            }
+          />
+          <Route
+            path='/postUsername/post/:id'
+            element={
+              user ? (
+                <>
+                  <Navbar/>
+                  <PostView/>
                 </>
               ) : (<Navigate to="/login"/>)
             }

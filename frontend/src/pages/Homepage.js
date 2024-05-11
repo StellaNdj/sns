@@ -39,7 +39,7 @@ const Homepage = () => {
     <div className="homepage">
       <div className="homepage-posts">
         <div className="homepage-post-form">
-          <PostHomepage>
+          <PostHomepage firstName={user?.firstName} lastName={user?.lastName}>
             <PostForm></PostForm>
           </PostHomepage>
         </div>

@@ -47,9 +47,12 @@ const PostForm = () => {
   return(
     <form className="post-form" onSubmit={handleSubmit}>
       <textarea
+        placeholder="What's new?"
         onChange={(e) => setContent(e.target.value)}
         value={content}></textarea>
-      <Button text={'Post'} onClick={undefined}></Button>
+      <div className="post-form-btn">
+        <Button className={'post-btn-form'} text={'Post'} onClick={undefined}></Button>
+      </div>
     </form>
   )
 };

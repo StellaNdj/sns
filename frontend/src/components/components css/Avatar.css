@@ -21,20 +21,21 @@
   align-items: center;
 }
 
-.avatar-infos > h3,
-.avatar-infos > p {
+.avatar-infos > a > h3,
+.avatar-infos > a > p {
   margin: 0;
   margin-left: 15px;
 }
 .avatar-infos > a {
   text-decoration: none;
 }
+
 .avatar-infos > a:hover {
   text-decoration: underline;
 }
 
 .avatar-infos > p {
-  color:#242464;
+  color:#55585b;
   font-size: smaller;
 }
 
