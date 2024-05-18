@@ -43,7 +43,7 @@ const Post = ({post, onDelete, onLike}) => {
   const deletePossible = () => {
     const userId = user.userId;
     if (userId === post.user._id) {
-      return (<p><FontAwesomeIcon icon={faTrash} onClick={handleDelete}></FontAwesomeIcon></p>)
+      return (<p className='post-trash'><FontAwesomeIcon icon={faTrash} onClick={handleDelete}></FontAwesomeIcon></p>)
     } else {
       return null
     }
@@ -104,7 +104,7 @@ const Post = ({post, onDelete, onLike}) => {
               />
           </div>
         )}
-        <p className="post-date">·{formatDistanceToNow(new Date(post.createdAt), {addSuffix: true})}</p>
+        <p className="post-date">· {formatDistanceToNow(new Date(post.createdAt), {addSuffix: true})}</p>
         {deletePossible()}
       </div>
       <p className="post-content">{post.content}</p>

@@ -1,10 +1,11 @@
 .post-card {
   max-width: 600px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #ece9e9;
 }
 .avatar-date {
   display: flex;
+  align-items: last baseline;
 }
 .post-counters {
   display: flex;
@@ -37,6 +38,16 @@
 .post-content,
 .post-counters {
   margin-left: 55px;
+}
+
+.post-trash {
+  margin-left: 10px;
+  font-size: small;
+  color: #838282;
+}
+
+.post-trash:hover {
+  color: rgb(171, 4, 4);
 }
 
 .post-content {

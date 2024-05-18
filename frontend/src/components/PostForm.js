@@ -9,7 +9,7 @@ const PostForm = () => {
   const { user } = useAuthContext();
   const [content, setContent] = useState('');
   const [error, setError] = useState(null);
-
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
