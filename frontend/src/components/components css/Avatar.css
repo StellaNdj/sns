@@ -56,8 +56,10 @@
 
 .avatarNav {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 }
 
 .avatarNav-logo {
