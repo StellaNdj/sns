@@ -9,11 +9,21 @@ import './DarkMode.css';
 import { useThemeContext } from './hooks/useThemeContext';
 import Profile from './pages/Profile';
 import PostView from './pages/PostView';
+import { useEffect } from 'react';
 
 
 function App() {
   const { user } = useAuthContext();
   const { darkTheme } = useThemeContext();
+
+  useEffect(() => {
+    const className = darkTheme ? 'darkMode' : 'light-mode';
+    document.documentElement.classList.add(className);
+
+    return () => {
+      document.documentElement.classList.remove(className);
+    };
+  }, [darkTheme])
 
   return (
     <div className={darkTheme ? 'App darkMode' : 'App'}>
