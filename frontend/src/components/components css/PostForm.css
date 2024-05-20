@@ -17,6 +17,18 @@
 
 .post-btn-form {
   color: #F2EFFF;
-  background-color: #000058;
+  background-color: #113755;
   cursor: pointer;
+}
+
+/* Post form dark mode */
+.post-form-dm > textarea {
+  background-color: #15202b;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  color: white;
 }

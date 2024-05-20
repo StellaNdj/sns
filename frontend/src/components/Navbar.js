@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { usePostContext } from '../hooks/usePostContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon, faHouse, faDoorOpen, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faHouse, faDoorOpen, faUser, faPen } from '@fortawesome/free-solid-svg-icons';
 import { useThemeContext } from '../hooks/useThemeContext';
 import AvatarNavbar from './AvatarNavbar';
 
@@ -51,14 +51,14 @@ const Navbar = () => {
       <img src="SocNetLogo.png" alt="Logo"></img>
       <div>
         <Link to="/">
-          <Button className="home-btn" text={"Home"} icon={faHouse}></Button>
+          <Button className={darkTheme ? "home-btn-dm" : "home-btn"} text={"Home"} icon={faHouse}></Button>
         </Link>
-        <Button className="logout-btn" text={"Log out"} onClick={handleLogout} icon={faDoorOpen}></Button>
-        <Button className="theme-btn" text={'Theme'} onClick={toggleTheme} icon={darkTheme ? faMoon : faSun}></Button>
+        <Button className={darkTheme ? "logout-btn-dm" : "logout-btn"} text={"Log out"} onClick={handleLogout} icon={faDoorOpen}></Button>
+        <Button className={darkTheme ? "theme-btn-dm" : "theme-btn"} text={'Theme'} onClick={toggleTheme} icon={darkTheme ? faMoon : faSun}></Button>
         <Link to={`/${user?.username}`}>
-          <Button className="profile-btn" text={'Profile'} icon={faUser}></Button>
+          <Button className={darkTheme ? "profile-btn-dm" : "profile-btn"} text={'Profile'} icon={faUser}></Button>
         </Link>
-        <Button className="post-btn" text={'Post'}></Button>
+        <Button className="post-btn" text={'Post'} icon={faPen}></Button>
       </div>
 
       {userInfo && (<AvatarNavbar firstName={userInfo.firstName} lastName={userInfo.lastName} username={userInfo.username}></AvatarNavbar>)}

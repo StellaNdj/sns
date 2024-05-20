@@ -5,13 +5,13 @@
 .avatar-logo {
   width: 50px;
   height: 50px;
-  background-color: #c2d9f3;
+  background-color: #385f7d;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color: #000058;
+  color: white;
   font-weight: bold;
 }
 
@@ -25,7 +25,13 @@
 }
 
 .avatar-infos > a > h3 {
-  margin-left: 8px
+  margin-left: 8px;
+  color: black;
+}
+
+.infos-dm > a > h3 {
+  margin-left: 8px;
+  color: white;
 }
 
 .avatar-infos > a > p,
@@ -65,13 +71,13 @@
 .avatarNav-logo {
   width: 50px;
   height: 50px;
-  background-color: #c2d9f3;
+  background-color: #385f7d;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color: #000058;
+  color: white;
   font-weight: bold;
   margin-right: 10px;
 }

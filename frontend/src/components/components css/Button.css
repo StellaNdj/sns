@@ -22,7 +22,8 @@
 .logout-btn:hover,
 .theme-btn:hover,
 .profile-btn:hover {
-  background-color: #dfe4e8 ;
+  background-color: #113755 ;
+  color: white;
   cursor: pointer;
 }
 
@@ -30,6 +31,68 @@
 .post-btn {
   color: #F2EFFF;
   width: 100%;
-  background-color: #000058;
+  background-color: #113755;
   cursor: pointer;
+}
+
+.post-btn > svg {
+  display: none;
+}
+
+/* Dark mode btns */
+
+.home-btn-dm,
+.logout-btn-dm,
+.theme-btn-dm,
+.profile-btn-dm {
+  background-color: #15202b;
+  color: white;
+  cursor: pointer;
+}
+
+.home-btn-dm:hover,
+.logout-btn-dm:hover,
+.theme-btn-dm:hover,
+.profile-btn-dm:hover {
+  background-color: #113755 ;
+  color: white;
+  cursor: pointer;
+}
+
+/* Smaller screen changes to btn */
+@media screen and (max-width: 600px) {
+  .home-btn > .button-text,
+  .logout-btn > .button-text,
+  .theme-btn > .button-text,
+  .profile-btn > .button-text,
+  .post-btn > .button-text {
+    display: none;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .post-btn {
+    padding: 16px;
+    border-radius: 50px;
+    width: auto;
+  }
+
+  .post-btn > svg {
+    display: block;
+    margin: 0px;
+  }
+
+  .avatarNav-infos {
+    display: none;
+  }
+
+  .navbar {
+    width: auto;
+  }
+
+  .homepage {
+    margin-left: 12vh;
+  }
 }

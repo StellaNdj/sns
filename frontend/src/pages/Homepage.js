@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Post from '../components/Post';
 import './pages css/Homepage.css';
 import { usePostContext } from '../hooks/usePostContext';
@@ -9,6 +9,7 @@ import PostHomepage from '../components/PostHomepage';
 const Homepage = () => {
   const { posts, dispatch } = usePostContext();
   const { user } = useAuthContext();
+  const [quote, setQuote] = useState();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -25,7 +26,22 @@ const Homepage = () => {
         dispatch({type: 'SET_POSTS', payload: json})
       }
     }
+
+    const fetchQuote = async () => {
+      const response = await fetch('https://waifu.it/api/v4/quote', {
+        headers: {
+          'Authorization': `MTIwNjUzNTM3Mzk3OTc4MzE4OA--.MTcxNjE5NDU3OQ--.6b7d2bc06ecf`
+        }
+      })
+
+      const json = await response.json();
+      if(response.ok) {
+        console.log(json);
+        setQuote(json);
+      }
+    }
     fetchPosts();
+    fetchQuote();
   }, [dispatch, user?.token])
 
   const handlePostDelete = (postId) => {
@@ -50,7 +66,7 @@ const Homepage = () => {
       <div className="homepage-rightside">
         <div className="homepage-quote">
           <h3>Quote of the day</h3>
-          <p>“Does losing prove that you are weak? Isn't losing difficult for all of you? A challenge where, after ending up on your hands and knees, you must see if you can stand up again? If you stay on your hands and knees, that proves that you are weak.” - Haikyuu</p>
+          {quote && <p>“{quote.quote}” - {quote.anime}</p>}
         </div>
         <div className="homepage-highlight">
           <h3>Highlights</h3>

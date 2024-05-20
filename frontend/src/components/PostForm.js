@@ -3,6 +3,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { usePostContext } from "../hooks/usePostContext";
 import './components css/PostForm.css';
 import Button from "./Button";
+import { useThemeContext } from "../hooks/useThemeContext";
 
 const PostForm = () => {
   const { dispatch } = usePostContext();
@@ -10,6 +11,7 @@ const PostForm = () => {
   const [content, setContent] = useState('');
   const [error, setError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(true);
+  const { darkTheme } = useThemeContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ const PostForm = () => {
   };
 
   return(
-    <form className="post-form" onSubmit={handleSubmit}>
+    <form className={darkTheme ? "post-form-dm" : "post-form"} onSubmit={handleSubmit}>
       <textarea
         placeholder="What's new?"
         onChange={(e) => setContent(e.target.value)}
