@@ -31,8 +31,27 @@
   text-align: left;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
   .homepage-rightside {
+    display: none;
+  }
+
+  .homepage {
+    margin-left: 12vh;
+    margin-right: 10vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homepage {
+    margin: 0px;
+  }
+
+  .homepage-posts {
+    margin-left: 0px;
+  }
+
+  .homepage-post-form {
     display: none;
   }
 }

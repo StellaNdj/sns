@@ -1,4 +1,5 @@
 import './components css/Profile.css';
+import '../responsive.css';
 import Avatar from './Avatar';
 
 const Profile = ({firstName, lastName, username}) => {

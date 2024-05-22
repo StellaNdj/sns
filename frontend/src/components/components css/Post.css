@@ -79,3 +79,10 @@
 .post-likes-liked:hover {
   color: #838282;
 }
+
+@media screen and (max-width: 480px) {
+  .post-content,
+  .post-counters {
+    font-size: smaller;
+  }
+}

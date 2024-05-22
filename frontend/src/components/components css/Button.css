@@ -59,13 +59,20 @@
   cursor: pointer;
 }
 
-/* Smaller screen changes to btn */
-@media screen and (max-width: 600px) {
+/* Medium to small screens */
+@media screen and (max-width: 748px) {
   .home-btn > .button-text,
   .logout-btn > .button-text,
   .theme-btn > .button-text,
   .profile-btn > .button-text,
   .post-btn > .button-text {
+    display: none;
+  }
+
+  .home-btn-dm > .button-text,
+  .logout-btn-dm > .button-text,
+  .theme-btn-dm > .button-text,
+  .profile-btn-dm > .button-text {
     display: none;
   }
 
@@ -82,17 +89,5 @@
   .post-btn > svg {
     display: block;
     margin: 0px;
-  }
-
-  .avatarNav-infos {
-    display: none;
-  }
-
-  .navbar {
-    width: auto;
-  }
-
-  .homepage {
-    margin-left: 12vh;
   }
 }

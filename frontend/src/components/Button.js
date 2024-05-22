@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './components css/Button.css'
+import './components css/Button.css';
+import '../responsive.css';
 import { faHouse, faDoorOpen, faMoon, faSun, faUser, faPen } from '@fortawesome/free-solid-svg-icons';
 
 const Button = ({text, className, onClick, icon, disabled}) => {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './components css/Avatar.css';
+import '../responsive.css';
 import { useThemeContext } from '../hooks/useThemeContext';
 
 

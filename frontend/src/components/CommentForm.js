@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import './components css/PostForm.css';
+import '../responsive.css';
 import Button from "./Button";
 
 const CommentForm = ({ postId, onNewComment }) => {

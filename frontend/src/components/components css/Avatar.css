@@ -92,3 +92,31 @@
   margin: 0;
   color: #55585b;
 }
+
+/* Media queries */
+@media screen and (max-width: 748px) {
+  .avatarNav-infos {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .avatarNav {
+    display: block;
+    margin: 10px;
+    position: inherit;
+    top: 0;
+  }
+
+  .avatarNav-logo,
+  .avatar-logo {
+    margin-right: 0px;
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+  }
+
+  .avatar-infos > a > h3 {
+    font-size: smaller;
+  }
+}

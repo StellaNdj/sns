@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { usePostContext } from "../hooks/usePostContext";
 import './components css/PostForm.css';
+import '../responsive.css';
 import Button from "./Button";
 import { useThemeContext } from "../hooks/useThemeContext";
 

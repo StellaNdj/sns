@@ -1,4 +1,5 @@
 import './components css/Avatar.css';
+import '../responsive.css';
 
 const AvatarNavbar = ({firstName, lastName, username}) => {
   return (

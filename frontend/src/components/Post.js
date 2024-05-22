@@ -1,4 +1,5 @@
 import './components css/Post.css';
+import '../responsive.css';
 import Avatar from './Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment, faTrash } from '@fortawesome/free-solid-svg-icons';
