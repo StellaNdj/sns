@@ -13,7 +13,7 @@ const Homepage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch('/api/posts', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${user?.token}`
@@ -30,13 +30,12 @@ const Homepage = () => {
     const fetchQuote = async () => {
       const response = await fetch('https://waifu.it/api/v4/quote', {
         headers: {
-          'Authorization': `MTIwNjUzNTM3Mzk3OTc4MzE4OA--.MTcxNjE5NDU3OQ--.6b7d2bc06ecf`
+          'Authorization': `${process.env.REACT_APP_WAIFU_TOKEN}`
         }
       })
 
       const json = await response.json();
       if(response.ok) {
-        console.log(json);
         setQuote(json);
       }
     }

@@ -23,7 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await fetch(`/api/user/${user?.email}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/${user?.email}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${user?.token}`

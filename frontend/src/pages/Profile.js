@@ -12,7 +12,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUsername = async () => {
-      const response = await fetch(`/api/user/username/${username}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/username/${username}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${user?.token}`
@@ -27,7 +27,7 @@ const Profile = () => {
     }
 
     const fetchUserPosts = async () => {
-      const response = await fetch(`/api/posts/username/${user?.userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts/username/${user?.userId}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${user?.token}`

@@ -24,7 +24,7 @@ const PostForm = () => {
 
     const post = {content};
 
-    const response = await fetch('/api/posts', {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}//api/posts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

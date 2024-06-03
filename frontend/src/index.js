@@ -9,13 +9,11 @@ import { ThemeContextProvider } from './contexts/themeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <AuthContextProvider>
-      <ThemeContextProvider>
-        <PostContextProvider>
-          <App />
-        </PostContextProvider>
-      </ThemeContextProvider>
-    </AuthContextProvider>
-  </React.StrictMode>
+  <AuthContextProvider>
+    <ThemeContextProvider>
+      <PostContextProvider>
+        <App />
+      </PostContextProvider>
+    </ThemeContextProvider>
+  </AuthContextProvider>
 );

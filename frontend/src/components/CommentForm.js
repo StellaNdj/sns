@@ -21,7 +21,7 @@ const CommentForm = ({ postId, onNewComment }) => {
     const comment = { content };
     console.log(postId);
 
-    const response = await fetch(`/api/posts/${postId}/comments`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts/${postId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

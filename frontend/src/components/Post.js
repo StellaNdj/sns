@@ -20,7 +20,7 @@ const Post = ({post, onDelete, onLike}) => {
       setDisplayComments(false);
     } else {
       const fetchComments = async () => {
-        const response = await fetch(`/api/posts/${post._id}/comments`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts/${post._id}/comments`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${user?.token}`
@@ -55,7 +55,7 @@ const Post = ({post, onDelete, onLike}) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this post?')
     if(confirmDelete) {
       const deletePost = async () => {
-        const response = await fetch(`/api/posts/${post._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts/${post._id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${user?.token}`
@@ -76,7 +76,7 @@ const Post = ({post, onDelete, onLike}) => {
   // Like a post
   const handleLike = () => {
     const likePost = async () => {
-      const response = await fetch(`/api/posts/likes/${post._id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/posts/likes/${post._id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${user?.token}`
