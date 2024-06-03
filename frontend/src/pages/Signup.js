@@ -56,7 +56,7 @@ const Signup = () => {
                 />
             <button disabled={loading}>Sign up</button>
           </form>
-          <p className="form-redirect">Already have an account ? <Link to='/login'>Sign in</Link></p>
+          <p className="form-redirect">Already have an account ? <Link to='/login'>Log in</Link></p>
           {error && <div className="notice">{error}</div>}
         </div>
       </div>
