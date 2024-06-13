@@ -14,6 +14,9 @@ const Login = () => {
     login(email, password);
   }
 
+  const logURL = `${process.env.REACT_APP_BACKEND_URL}/api/user/login`;
+  console.log(logURL);
+  
   return(
     <div className="form-container">
       <div className="form-left-side"></div>
